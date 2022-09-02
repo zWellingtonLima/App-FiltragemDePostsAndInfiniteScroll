@@ -7,7 +7,15 @@ const getPost = async () => {
 
 const addPostsIntoDOM = async () => {
   const posts = await getPost();
-  const postTemplate = posts.map(item => `<div>${item.id}</div>` );
+  const postsTemplate = posts.map(item =>`
+  <div class="post">
+    <div class="number">${item.id}</div>
+    <div class="post-info">
+      <h2 class="post-title">${item.title}</h2>
+      <p class="post-body">${item.body}</p>
+    </div>
+  </div>` 
+  );
 };
 
 addPostsIntoDOM();
