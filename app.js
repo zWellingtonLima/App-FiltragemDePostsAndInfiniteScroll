@@ -26,10 +26,17 @@ const addPostsIntoDOM = async () => {
 
 addPostsIntoDOM();
 
+const getNextsPosts = () => {
+  page++;
+  addPostsIntoDOM();
+};
+
 const removeLoader = () => {
   setTimeout(() => {
     loaderContainer.classList.remove('show')
-  }, 1000)
+    getNextsPosts()
+  }, 1000);
+  
 };
 
 const showLoader = () => {
